@@ -4,14 +4,9 @@ public class LocationStats {
     private String state;
     private String country;
     private int latestTotalCases;
+    private int addedSincePrevDay;
 
     public LocationStats() {
-    }
-
-    public LocationStats(String state, String country, int latestTotalCases) {
-        this.state = state;
-        this.country = country;
-        this.latestTotalCases = latestTotalCases;
     }
 
     @Override
@@ -20,6 +15,7 @@ public class LocationStats {
                 "state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", latestTotalCases=" + latestTotalCases +
+                ", addedSincePrevDay=" + addedSincePrevDay +
                 '}';
     }
 
@@ -45,5 +41,13 @@ public class LocationStats {
 
     public void setLatestTotalCases(int latestTotalCases) {
         this.latestTotalCases = latestTotalCases;
+    }
+
+    public int getAddedSincePrevDay() {
+        return addedSincePrevDay;
+    }
+
+    public void setAddedSincePrevDay(int addedSincePrevDay) {
+        this.addedSincePrevDay = addedSincePrevDay;
     }
 }

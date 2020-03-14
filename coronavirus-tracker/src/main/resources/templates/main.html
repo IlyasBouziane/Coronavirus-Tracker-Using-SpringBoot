@@ -7,23 +7,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" media="all"
           href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 
 <body>
+<div class="container">
+<h1>Coronavirus Tracker App</h1>
 
-<table>
-    <tr>
-        <th>STATE</th>
-        <th>COUNTRY</th>
-        <th>TOTAL CASES REPORTED</th>
-    </tr>
-    <tr th:each="locationStat : ${locationStats}">
-        <td th:text="${locationStat.state}"></td>
-        <td th:text="${locationStat.country}"></td>
-        <td th:text="${locationStat.latestTotalCases}"></td>
-    </tr>
-</table>
+<p>This app presents the current total cases reported of Coronavirus around the World</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4" th:text="${totalCasesReported}"></h1>
+        <p class="lead">Total Reported Cases</p>
+        <hr class="my-4">
+        <p>New cases reported Today : <strong th:text="${newCasesReported}" /></p>
+    </div>
+</div>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>STATE</th>
+            <th>COUNTRY</th>
+            <th>TOTAL CASES REPORTED</th>
+            <th>SINCE LAST DAY</th>
 
+        </tr>
+        </thead>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.latestTotalCases}"></td>
+            <td th:text="${locationStat.addedSincePrevDay}"></td>
+        </tr>
+    </table>
+</div>
 </body>
 
 </html>
