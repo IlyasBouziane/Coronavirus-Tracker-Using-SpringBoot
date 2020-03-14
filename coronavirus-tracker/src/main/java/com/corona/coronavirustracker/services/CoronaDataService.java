@@ -27,7 +27,7 @@ public class CoronaDataService {
     private ArrayList<LocationStats> allStats;
 
     @PostConstruct
-    @Scheduled(cron = "* * 1 * * *")
+    @Scheduled(cron = "0 0 * ? * *")
     public void fetchCoronaData() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
