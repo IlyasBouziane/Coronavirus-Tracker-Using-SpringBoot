@@ -28,8 +28,7 @@ public class MainController {
         int newCasesReported = locationStats.stream().mapToInt(locationStat -> locationStat.getAddedSincePrevDay()).sum();
         model.addAttribute("newCasesReported",newCasesReported);
         model.addAttribute("locationStats",locationStats);
-
         return "main";
     }
-
 }
+
